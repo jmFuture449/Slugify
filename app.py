@@ -9,3 +9,10 @@ def slugify(text: str) -> str:
     text = text.lower()
     text = re.sub(r"[^a-z0-9]+", "-", text)
     return re.sub(r"-{2,}", "-", text).strip("-")
+
+def kebab_to_title_case(text: str) -> str:
+    """
+    Convert *text* from kebab-case to Title Case.
+    """
+    words = (word for word in text.split("-") if word)
+    return " ".join(word.capitalize() for word in words)
