@@ -14,4 +14,5 @@ def kebab_to_title_case(text: str) -> str:
     """
     Convert *text* from kebab-case to Title Case.
     """
-    return " ".join(word.capitalize() for word in text.split("-"))
+    words = (word for word in text.split("-") if word)
+    return " ".join(word.capitalize() for word in words)
